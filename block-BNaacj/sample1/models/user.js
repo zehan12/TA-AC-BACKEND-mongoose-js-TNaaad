@@ -7,6 +7,11 @@ var userSchema = new Schema({
     age: { type: Number, default: 0 },
     favourits: [String],
     marks: [Number],
-    createdAt: { type: Date, default: Date.now },
+    createdAt: { type: Date, default: new Date() },
     password: { type: String, minlength: 5, maxlength: 15, required: true }
 }, { timestamps: true } );
+
+// module.exports = mongoose.model( 'User', userSchema );
+
+var user = mongoose.model( 'User', userSchema );
+module.exports = user;
